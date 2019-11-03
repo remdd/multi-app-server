@@ -1,0 +1,457 @@
+html {
+	overflow-y: scroll;			/* prevents page moving a few pixels to the left on pages requiring scroll */
+	overflow-x: hidden;
+}
+.allDiv {
+	width: 96%;
+	max-width: 1872px;
+	position: relative;
+	top: 5vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+body {
+	text-transform: uppercase;
+	-webkit-transition: background 0.5s;
+	-o-transition: background 0.5s;
+	transition: background 0.5s;
+	font-family: 'Sawarabi Gothic', sans-serif;
+/*	font-weight: bold;*/
+	background: rgb(252,252,252);
+	color: #666;
+}
+img {
+	max-width: 100%;
+}
+h3, .flipBtn, .thumbImg, .logoMain {
+	cursor: pointer;
+	cursor: hand;
+}
+.aboutText {
+	text-transform: none;
+	text-align: left;
+	font-size: 1.15em;
+	line-height: 1.8;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
+	height: 80vh;
+	position: relative;
+} .mainAboutText,
+	.musicAboutText  {
+	font-size: 0.85em;
+}
+.publicationList {
+	padding-top: 2em;
+}
+.aboutFlexDiv {
+	width: 100%;
+}
+.aboutPadDivTop {
+	-webkit-box-flex: 2;
+	    -ms-flex-positive: 2;
+	        flex-grow: 2;
+	width: 100%;
+} .aboutPadDivBottom {
+	-webkit-box-flex: 3;
+	    -ms-flex-positive: 3;
+	        flex-grow: 3;
+	width: 100%;
+}
+#musicAbout .aboutPadDivBottom {
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+	width: 100%;
+}
+.musicEmailLink {
+	color: white;
+}
+.signature {
+	width: 150px;
+	padding: 0 0 10px 0;
+}
+.blackTheme {
+	background: black;
+	color: white;
+}
+.logoChasingMain,
+.logoShadowsMain,
+.logoChasingMusic,
+.logoShadowsMusic {
+	font-family: 'Spectral', serif;
+/*	color: black;*/
+}
+.col {
+	padding: 0;
+}
+.showPane {
+	text-align: center;
+	height: calc(90vh - 40px);
+}
+.showDiv {
+	height: calc(90vh - 40px);
+	width: 100%;
+	padding: 0;
+}
+#showZoomImg {
+	position: absolute;
+	text-align: center;
+	padding: 0;
+} #showZoomImg img {
+	max-height: calc(90vh - 70px);
+}
+@media screen and (min-width: 1200px) {
+	.showPane {
+		height: 90vh;
+	}
+	.showDiv {
+		height: calc(90vh);
+	}
+	#showZoomImg {
+		padding: 0 30px;
+	}
+	#showZoomImg img {
+		max-height: calc(90vh - 35px);
+	}
+}  
+#mainCover, #musicCover {
+	position: absolute;
+	padding: 0 30px;
+}
+.navCol {
+	height: 90vh;
+	position: fixed;
+	padding: 0;
+	padding-right: 10px;
+	margin: 0;
+	-webkit-transition: opacity 0.5s;
+	-o-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+.iconCol {
+	height: 90vh;
+	position: fixed;
+}
+.bufferCol {
+	padding: 0;
+	margin: 0;
+	background: green;
+}
+
+.coverImgContainer {
+	width: 100%;
+	height: 100%;
+	font-size: 0;
+	margin: 0 auto;
+}
+
+.coverImg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	margin: 0 auto;
+	transition: opacity 0.5s linear;
+	/*	Hack to prevent slight glitch when rounding fractional widths down during transitions */
+	-webkit-transform: translateZ(0);
+	width: calc(100% + .49px);
+}
+.coverImg.notShown {
+	opacity: 0;
+}
+.coverImgNav {
+	position: absolute;
+	box-sizing: border-box;
+	width: calc(100% + 20px);
+/*	height: 6px;*/
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 -10px;
+}
+.coverImgBtn {
+	margin: 0 10px -10px 10px;
+	height: 26px;
+	padding: 10px 0;
+	background-clip: content-box;
+	flex-grow: 1;
+	transition: background-color 0.5s linear;
+}
+#mainCoverImgNav .coverImgBtn {
+	background-color: #ddd;
+}
+#mainCoverImgNav .coverImgBtn.selected {
+	background-color: #bbb;
+}
+#musicCoverImgNav .coverImgBtn {
+	background-color: #111;
+}
+#musicCoverImgNav .coverImgBtn.selected {
+	background-color: #222;
+}
+
+
+.big4ThumbImg {
+	max-width: 50%;
+} .small4ThumbImg {
+	max-width: 25%;
+} .big3ThumbImg {
+	max-width: 50%;
+} .small3ThumbImg {
+	max-width: 33%;
+}
+ .thumb4x4 {
+	padding: 0 8px 24px 8px;
+} .thumbEven {
+	padding: 0 8px 16px 8px;
+}
+
+.tooltip-inner {
+	max-width: 400px;
+}
+
+/*#thumbCol1 {
+	background: yellow;
+}#thumbCol2 {
+	background: pink;
+}#thumbCol3 {
+	background: orange;
+}#thumbCol4 {
+	background: lightblue;
+}*/
+
+.picControls {
+	position: absolute;
+	color: black;
+	bottom: 0;
+	left: 0;
+	font-size: 1.5em;
+	width: 100%;
+	text-align: center;
+	z-index: 5;
+} .controlSpan {
+	margin: 0 auto;
+} .picControl {
+	padding: 0 40px 0 40px;
+	text-shadow: 0 0 3px white;
+} #closePopUp {
+	font-size: 0.7em;
+}
+
+.invisible {
+	opacity: 0;
+}
+.noDisplay {
+	display: none;
+}
+
+
+/*	Nav 	*/
+.logo {
+	margin-bottom: 10px;
+	margin-top: -5px;
+} .logo h1 {
+	margin: 0 0 0 0;
+/*	font-size: 2.6em;*/
+	display: inline;
+} .logoChasingMain {
+	letter-spacing: 7.8px;
+} .logoShadowsMain {
+	letter-spacing: 5px;
+} .logoPhotographyMain {
+	white-space: nowrap;
+} .logoLKBMain {
+	white-space: nowrap;
+}
+.logoChasingMusic {
+	letter-spacing: 9.1px;
+} .logoShadowsMusic {
+	letter-spacing: 5px;
+} .logoPhotographyMusic {
+	white-space: nowrap;
+} .logoLKBMusic {
+	white-space: nowrap;
+}
+h2 {
+	font-size: 0.6em;
+	margin: 0 0 4px 0;
+} 
+h3 {
+	font-size: 0.7em;
+	margin: 0 0 10px 0;
+/*	white-space: nowrap;*/
+}
+.mainArticle {
+	color: black !important;
+}
+.musicLink {
+	color: white !important;
+}
+.dropdown-menu {
+	color: black !important;
+}
+ul {
+	padding: 0;
+	list-style: none;
+}
+.li a {
+	padding: 0;
+}
+.galLink {
+	padding-left: 15px;
+} .extLink {
+	padding-left: 15px;
+}
+
+/*	Mini header */
+.miniNavContainer {
+	height: 35px;
+	width: 100%;
+}
+.miniNav {
+	position: absolute;
+	width: 100%;
+}
+.miniLogo {
+	width: 60%;
+/*	background: yellow;*/
+	white-space: nowrap;
+	display: inline-block;
+	padding-bottom: 10px;
+}
+.miniLogoHeader {
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+.miniNavBtns {
+	text-align: right;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+/*	background: pink;*/
+	width: 40%;
+} .miniNavBtns i {
+	font-size: 2em;
+	color: black;
+	-webkit-transition: color 1s;
+	-o-transition: color 1s;
+	transition: color 1s;
+	padding: 2px 5px;
+}
+.navBtn {
+	display: inline-block;
+	vertical-align: top;
+}
+.miniFlip {
+	padding-top: 3px;
+}
+.dropdown-menu {
+	padding: 10px;
+}
+
+
+/*	Footer icons */
+.footerIcons {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.footerIcons i {
+	font-size: 1.6em;
+	padding-right: 20px;
+	color: black;
+	-webkit-transition: color 1s;
+	-o-transition: color 1s;
+	transition: color 1s;
+}
+.miniNavIcon i {
+	font-size: 1.2em;
+	padding-left: 0;
+	margin-left: 0;
+	color: black;
+}
+/*	Flip button */
+.flippedIcon {
+	color: white !important;
+} .flipContainer {
+  	display: inline-block;
+  	top: 2.5px;
+	width: 20px;
+	height: 20px;
+	-webkit-perspective: 300px;
+	        perspective: 300px;
+	position: relative;
+	z-index: 10;
+} .flipBtn {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform 1s;
+	transition: -webkit-transform 1s;
+	-o-transition: transform 1s;
+	transition: transform 1s;
+	transition: transform 1s, -webkit-transform 1s;
+} .flipDiv {
+	padding: 3px 0 0 4px;
+	-webkit-backface-visibility: hidden;
+	        backface-visibility: hidden;
+  	position: absolute;
+  	margin: 0;
+  	width: 100%;
+  	height: 100%;
+	background: black;
+} .flipFront {
+	background: black;
+} .flipBack {
+	background: white;
+	-webkit-transform: rotateY( 180deg );
+	        transform: rotateY( 180deg );
+} .flipped {
+	-webkit-transform: rotateY( 180deg );
+	        transform: rotateY( 180deg );
+} .flipTriangleFront {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 7px 0 7px 12.12px;
+	border-color: transparent transparent transparent #ffffff;
+} .flipTriangleBack {
+	z-index: 1;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 7px 12.12px 7px 0;
+	border-color: transparent #000000 transparent transparent;
+} .whiteIcons {
+	color: white !important;
+	text-shadow: 0 0 3px black;
+}
+
+#subtitle {
+	text-align: center;
+	width: 100%;
+}
+
+.aboutL {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.houzz {
+	margin-top: 2em;
+	transform-origin: top right;
+	transform: scale(0.8);
+}

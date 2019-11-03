@@ -1,0 +1,35 @@
+<% include ./partials/header %>
+
+<div class="bgDiv solidBgDivLast">
+	<div class="container">
+		<div class="row">
+			<div class="col col-12">
+				<h2>Blog</h2>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<% if(blogPosts.total > blogPosts.limit) { %>
+				<p>Showing <%= blogPosts.limit %> results per page - page <%= blogPosts.page %> of <%= blogPosts.pages %> (<%= blogPosts.total %> results total)</p>
+			<% } %>
+
+			<% blogPosts.docs.forEach(blogPost => { %>
+				<a href="/blog/<%= blogPost._id %>" class="thumbLink blogTitle">
+					<div class="col col-12 blogThumb">
+						<div class="truncatedBlogContent">
+								<h3><%= blogPost.title %></h3>
+							<span class="dateSpan"><%= blogPost.dateDisplay %></span>
+							<%- blogPost.textContent %>								<!-- note that EJS hyphen tag notation evaluates & renders HTML tags from string -->
+						</div>
+					</div>
+				</a>
+			<% }); %>
+
+		</div>
+	</div>
+</div>
+
+
+<% include ./partials/footer %>
+

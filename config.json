@@ -1,0 +1,26 @@
+{
+    "rootUrl": "http://localhost",
+    "apps": [
+        {
+            "name": "Test",
+            "route": "/test",
+            "port": 3000,
+            "dir": "server1",
+            "entrypoint": "index.js"
+        },
+        {
+            "name": "Red Mars Digital",
+            "route": "/RedMarsDigital",
+            "port": 3010,
+            "dir": "RedMarsDigital",
+            "entrypoint": "app.js"
+        },
+        {
+            "name": "Chasing Shadows",
+            "route": "/ChasingShadows",
+            "port": 3011,
+            "dir": "ChasingShadows",
+            "entrypoint": "app.js"
+        }
+    ]
+}   

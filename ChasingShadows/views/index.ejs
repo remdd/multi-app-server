@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Chasing Shadows</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>	
+	<script type="text/javascript" src="/js/chasingshadows.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- 	<link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet"> -->
+	<link href="https://fonts.googleapis.com/css?family=Spectral" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/lib/masonry.pkgd.min.js"></script>
+	<script type="text/javascript" src="/lib/bigtext.js"></script>
+	<script type="text/javascript" src="/lib/imagesloaded.pkgd.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/chasingshadows.css">
+<!-- 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
+
+</head>
+<body>
+
+<!--	COMMON 		-->
+
+
+
+	<div class="container-fluid allDiv" id="allDiv" 
+		data-maintheme=<%= mainTheme %> 
+		<% if(typeof query !== 'undefined') { %>
+			data-showDiv='<%= query.showDiv %>' 
+			data-galName='<%= query.galName %>' 
+			data-galCount='<%= query.galCount %>' 
+			data-thumbClass='<%= query.thumbClass %>' 
+			data-galCol='<%= query.galCol %>' 
+			data-imgNo='<%= query.imgNo %>'
+		<% } %>
+	>
+
+		<div class="row">
+
+		<!-- Mini-nav 		-->
+
+			<div class="col col-md-12 hidden-lg miniNavContainer">
+	
+				<div class="mainNav miniNav invisible" id="mainMiniLogo">
+					<div class="miniLogo bigTextSm">
+						<h1 class="miniLogoHeader">Chasing Shadows</h1>
+					</div>
+				</div>
+
+				<div class="musicNav miniNav invisible" id="musicMiniLogo">
+					<div class="miniLogo bigTextSm">
+						<h1 class="miniLogoHeader">Chasing Shadows</h1>
+					</div>
+				</div>
+
+				<div class="miniNavBtns">
+					<ul class="navBtn">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars bigIcon" aria-hidden="true"></i></a>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<li>
+									<form>
+										<ul>
+											<li class="mainMiniNav noDisplay">
+												<ul>
+													<li><h3 class="categoryLink">Still Life</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="18" data-gallery="Food" data-thumbClass="thumbEven">
+														<h3>Food</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="12" data-gallery="ThirtyFourPointFour" data-thumbClass="thumbEven">
+														<h3>34.4 Skincare</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="PlantLife" data-thumbClass="thumbEven"><h3>Plant Life</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="18" data-gallery="FruitAndVeg" data-thumbClass="thumbEven">
+														<h3>Fruit & veg</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="18" data-gallery="MiniatureSet" data-thumbClass="thumbEven"><h3>Balance miniature sets</h3></li>
+												</ul>
+												<ul>
+													<li><h3 class="categoryLink">Interiors</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="24" data-gallery="ArtistsHouse" data-thumbClass="thumbEven">
+														<h3>Artist's House</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="38" data-gallery="EnaSalon" data-thumbClass="thumbEven">
+														<h3>Ena Salon</h3>
+													</li>
+												</ul>
+												<ul>
+													<li><h3 class="categoryLink">Flowers</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="5" data-gallery="WeddingFlowers" data-thumbClass="thumbEven">
+														<h3>Wedding flowers</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="29" data-gallery="HamptonCourt18" data-thumbClass="thumbEven"><h3>Hampton Court Flower Show 2018</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="16" data-gallery="Flowers" data-thumbClass="thumb4x4">
+														<h3>Hampton Court Flower Show 2017</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="RHSPlantFair" data-thumbClass="thumbEven">
+														<h3>RHS Early Spring Plant Fair</h3>
+													</li>
+												</ul>
+												<ul>
+													<li><h3 class="categoryLink">Nature</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="Richmond" data-thumbClass="thumbEven">
+														<h3>Richmond Park</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="SouthDowns" data-thumbClass="thumbEven">
+														<h3>South Downs</h3>
+													</li>
+												</ul>
+												<ul>
+													<li><h3 class="categoryLink">Travel</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="17" data-gallery="Stockholm" data-thumbClass="thumbEven">
+														<h3>Stockholm</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="Cuba" data-thumbClass="thumbEven">
+														<h3>Cuba</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="Paris" data-thumbClass="thumbEven">
+														<h3>Paris</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="19" data-gallery="Norway" data-thumbClass="thumbEven">
+														<h3>Norway</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="15" data-gallery="Scotland" data-thumbClass="thumbEven">
+														<h3>Scotland</h3>
+													</li>
+												</ul>
+												<ul>
+													<li><h3 class="categoryLink">Personal Projects</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="9" data-gallery="Rubbish" data-thumbClass="thumbEven"><h3>Discarded</h3></li>
+												</ul>
+											</li>
+
+											<li class="musicMiniNav noDisplay">
+												<ul>
+													<li><h3 class="categoryLink">Live Gigs</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="13" data-gallery="mortalorchestra" data-thumbClass="thumbEven">
+														<h3>Unknown Mortal Orchestra</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="8" data-gallery="mosessumney" data-thumbClass="thumbEven">
+														<h3>Moses Sumney</h3>
+													</li>													
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="18" data-gallery="JessieWare" data-thumbClass="thumbEven">
+														<h3>Jessie Ware</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="7" data-gallery="HiddenOrchestra" data-thumbClass="thumb4x4">
+														<h3>Hidden Orchestra</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="7" data-gallery="Swans" data-thumbClass="thumb4x4">
+														<h3>Swans</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="18" data-gallery="AnnaVonHausswolff" data-thumbClass="thumb4x4">
+														<h3>Anna Von Hausswolff</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="16" data-gallery="Hipsway" data-thumbClass="thumbEven">
+														<h3>Hipsway</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="13" data-gallery="DeerTick" data-thumbClass="thumbEven">
+														<h3>Deer Tick</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="9" data-gallery="CDuncan" data-thumbClass="thumbEven">
+														<h3>C Duncan</h3>
+													</li>
+<!-- 													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="7" data-gallery="YussefKamaal" data-thumbClass="thumbEven">
+														<h3>Yussef & Kamaal</h3>
+													</li> -->
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="8" data-gallery="MaxCooper" data-thumbClass="thumbEven">
+														<h3>Max Cooper</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="AJA" data-thumbClass="thumbEven">
+														<h3>AJA</h3>
+													</li>
+<!-- 													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="10" data-gallery="TokyoTaboo" data-thumbClass="thumbEven">
+														<h3>Tokyo Taboo</h3>
+													</li> -->
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="James_Holden" data-thumbClass="thumbEven">
+														<h3>James Holden & the Animal Spirits</h3>
+													</li>
+<!-- 													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="EmilianaTorrini" data-thumbClass="thumbEven">
+														<h3>Emiliana Torrini & The Colorist</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="9" data-gallery="MatthewHalsall" data-thumbClass="thumbEven">
+														<h3>Matthew Halsall & the Gondwana Orchestra</h3>
+													</li>
+ -->
+												</ul>
+
+												<ul>
+													<li><h3 class="categoryLink">Dance and Theatre</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="10" data-gallery="dancersimon" data-thumbClass="thumbEven">
+														<h3>Simon Stache</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="12" data-gallery="dancernick" data-thumbClass="thumbEven">
+														<h3>Nick Tredrea</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="27" data-gallery="CarmenLaCubana" data-thumbClass="thumbEven">
+														<h3>Carmen La Cubana, Sadler's Wells</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="16" data-gallery="AlbanyTechnicalWorkshop" data-thumbClass="thumbEven">
+														<h3>The Albany Technical Theatre Masterclass</h3>
+													</li>
+												</ul>
+
+												<ul>
+													<li><h3 class="categoryLink">Events</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="19" data-gallery="JuliaFullertonBatten" data-thumbClass="thumbEven">
+														<h3>Julia Fullerton-Batten - behind the scenes</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="14" data-gallery="EnterThroughTheHeadset" data-thumbClass="thumbEven">
+														<h3>Enter Through The Headset - Private View</h3>
+													</li>
+												</ul>
+
+												<ul>
+													<li><h3 class="categoryLink">Portraits</h3></li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="9" data-gallery="LiaMicePressShots" data-thumbClass="thumbEven">
+														<h3>Lia Mice - Press Shots</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="RichardTaitArtist" data-thumbClass="thumbEven">
+														<h3>Richard Tait - Artist</h3>
+													</li>
+												</ul>
+
+												<ul>
+													<li><h3 class="categoryLink">Fashion</h3></li>
+
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="22" data-gallery="SanneSavileRowCatwalk" data-thumbClass="thumbEven">
+														<h3>Sanne Savile Row LFW - Catwalk show</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="SanneSavileRowBackstage" data-thumbClass="thumbEven">
+														<h3>Sanne Savile Row LFW - Backstage</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="48" data-gallery="Behind-the-scenes" data-thumbClass="thumbEven">
+														<h3>Lulaloop - behind the scenes</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="SurrenderToAStranger" data-thumbClass="thumbEven">
+														<h3>Surrender to a Stranger</h3>
+													</li>
+													<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="19" data-gallery="Youthquake" data-thumbClass="thumbEven">
+														<h3>Youthquake</h3>
+													</li>
+												</ul>
+											</li>
+
+											<li class="divider"></li>
+
+											<li class="categoryLink publishedLink galLinkMain musicMiniNav noDisplay" data-galCol="3" data-pics="15" data-gallery="Published" data-thumbClass="thumbEven">
+												<h3>Published</h3>
+											</li>
+
+											<li class="divider"></li>
+
+											<li class="mainMiniNav noDisplay"><h3 class="aboutLink">About</h3></li>
+											<li class="musicMiniNav noDisplay"><h3 class="aboutLink">About</h3></li>
+											<li>
+												<ul class="mainMiniNav noDisplay">
+													<li><h3 class="categoryLink">Articles</h3></li>
+													<li hidden class="galLink extLink">
+														<h3><a class="mainArticle" target="_blank" href="http://www.curieuxmagazine.com/preserving-cuba/">Curieux - Preserving Cuba</a></h3>
+													</li>
+												</ul>
+											</li>
+<!--  											<li>
+												<ul class="musicMiniNav noDisplay">
+													<li><h3 class="categoryLink">Links</h3></li>
+													<li hidden class="galLink extLink">
+														<h3><a class="mainArticle" target="_blank" href="http://thequietus.com/articles/23080-lone-taxidermist-aja-ireland-trifle-live-review">The Quietus - AJA</a></h3>
+													</li>
+												</ul>
+											</li> -->
+
+											<li>
+												<a target="_blank" class="instagramLink miniNavIcon" href="https://www.instagram.com/chasing_shadows_london/">
+													<i class="fa fa-instagram" aria-hidden="true"></i>
+												</a>
+												<a href="mailto:laura@chasingshadowsphotography.com" class="miniNavIcon">
+													<i class="fa fa-envelope-o" aria-hidden="true"></i>
+												</a>
+											</li>
+										</ul>
+									</form>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+					<div class="flipContainer navBtn miniFlip">
+						<div class="flipBtn">
+							<div class="flipDiv flipFront">
+								<div class="flipTriangleFront"></div>
+							</div>
+							<div class="flipDiv flipBack">
+								<div class="flipTriangleBack"></div>
+							</div>
+						</div>
+					</div>
+
+
+<!-- 
+					<i class="fa fa-bars" aria-hidden="true"></i>
+ -->
+				</div>
+				
+			</div>
+
+
+		<!-- Nav 		-->
+
+			<div class="col col-lg-2 visible-lg">
+				
+				<div class="col col-lg-2 visible-lg navCol mainNav invisible" id="mainBigNav">
+					<div>
+						<div class="logo logoMain bigText">
+							<h1 class="logoChasingMain">Chasing</h1>
+							<h1 class="logoShadowsMain">Shadows</h1>
+						</div>
+						<div class="subLogo">
+							<h2 class="logoPhotographyMain">Photography by</h2>
+							<h2 class="logoLKBMain">Laura Kate Bemrose</h2>
+						</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<ul>
+							<li><h3 class="categoryLink">Still Life</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="18" data-gallery="Food" data-thumbClass="thumbEven">
+								<h3>Food</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="12" data-gallery="ThirtyFourPointFour" data-thumbClass="thumbEven">
+								<h3>34.4 Skincare</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="PlantLife" data-thumbClass="thumbEven"><h3>Plant Life</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="18" data-gallery="FruitAndVeg" data-thumbClass="thumbEven">
+								<h3>Fruit & veg</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="18" data-gallery="MiniatureSet" data-thumbClass="thumbEven"><h3>Balance miniature sets</h3></li>
+						</ul>
+						<ul>
+							<li><h3 class="categoryLink">Interiors</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="24" data-gallery="ArtistsHouse" data-thumbClass="thumbEven">
+								<h3>Artist's House</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="38" data-gallery="EnaSalon" data-thumbClass="thumbEven">
+								<h3>Ena Salon</h3>
+							</li>
+						</ul>
+						<ul>
+							<li><h3 class="categoryLink">Flowers</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="5" data-gallery="WeddingFlowers" data-thumbClass="thumbEven"><h3>Wedding flowers</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="29" data-gallery="HamptonCourt18" data-thumbClass="thumbEven"><h3>Hampton Court Flower Show 2018</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="16" data-gallery="Flowers" data-thumbClass="thumb4x4"><h3>Hampton Court Flower Show 2017</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="RHSPlantFair" data-thumbClass="thumbEven"><h3>RHS Early Spring Plant Fair</h3></li>
+						</ul>
+						<ul>
+							<li><h3 class="categoryLink">Nature</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="Richmond" data-thumbClass="thumbEven"><h3>Richmond Park</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="SouthDowns" data-thumbClass="thumbEven"><h3>South Downs</h3></li>
+						</ul>
+						<ul>
+							<li><h3 class="categoryLink">Travel</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="17" data-gallery="Stockholm" data-thumbClass="thumbEven"><h3>Stockholm</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="Cuba" data-thumbClass="thumbEven"><h3>Cuba</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="Paris" data-thumbClass="thumbEven"><h3>Paris</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="19" data-gallery="Norway" data-thumbClass="thumbEven"><h3>Norway</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="15" data-gallery="Scotland" data-thumbClass="thumbEven"><h3>Scotland</h3></li>
+						</ul>
+						<ul>
+							<li><h3 class="categoryLink">Personal Projects</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="9" data-gallery="Rubbish" data-thumbClass="thumbEven"><h3>Discarded</h3></li>
+						</ul>
+						<br>
+						<br>
+						<h3 class="aboutLink">About</h3>
+						<ul>
+							<li><h3 class="categoryLink">Articles</h3></li>
+							<li hidden class="galLink extLink">
+								<h3><a class="mainArticle" target="_blank" href="http://www.curieuxmagazine.com/preserving-cuba/">Curieux - Preserving Cuba</a></h3>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col col-lg-2 visible-lg navCol musicNav invisible" id="musicBigNav">
+					<div>
+						<div class="logo logoMain bigText">
+							<h1 class="logoChasingMain">Chasing</h1>
+							<h1 class="logoShadowsMain">Shadows</h1>
+						</div>
+						<div class="subLogo">
+							<h2 class="logoPhotographyMain">Photography by</h2>
+							<h2 class="logoLKBMain">Laura Kate Bemrose</h2>
+						</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<ul>
+							<li><h3 class="categoryLink">Live Gigs</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="13" data-gallery="mortalorchestra" data-thumbClass="thumbEven"><h3>Unknown Mortal Orchestra</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="8" data-gallery="mosessumney" data-thumbClass="thumbEven"><h3>Moses Sumney</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="18" data-gallery="JessieWare" data-thumbClass="thumbEven"><h3>Jessie Ware</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="7" data-gallery="HiddenOrchestra" data-thumbClass="thumb4x4"><h3>Hidden Orchestra</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="7" data-gallery="Swans" data-thumbClass="thumb4x4"><h3>Swans</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="18" data-gallery="AnnaVonHausswolff" data-thumbClass="thumb4x4"><h3>Anna Von Hausswolff</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="16" data-gallery="Hipsway" data-thumbClass="thumbEven"><h3>Hipsway</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="13" data-gallery="DeerTick" data-thumbClass="thumbEven"><h3>Deer Tick</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="9" data-gallery="CDuncan" data-thumbClass="thumbEven"><h3>C Duncan</h3></li>
+<!-- 							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="7" data-gallery="YussefKamaal" data-thumbClass="thumbEven"><h3>Yussef & Kamaal</h3></li> -->
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="8" data-gallery="MaxCooper" data-thumbClass="thumbEven"><h3>Max Cooper</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="AJA" data-thumbClass="thumbEven"><h3>AJA</h3></li>
+<!-- 							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="10" data-gallery="TokyoTaboo" data-thumbClass="thumbEven"><h3>Tokyo Taboo</h3></li> -->
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="James_Holden" data-thumbClass="thumb4x4"><h3>James Holden & the Animal Spirits</h3></li>
+<!-- 							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="EmilianaTorrini" data-thumbClass="thumbEven">
+								<h3>Emiliana Torrini & The Colorist</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="9" data-gallery="MatthewHalsall" data-thumbClass="thumb4x4"><h3>Matthew Halsall & the Gondwana Orchestra</h3></li>
+ -->						</ul>
+
+						<ul>
+							<li><h3 class="categoryLink">Dance and Theatre</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="10" data-gallery="dancersimon" data-thumbClass="thumbEven">
+								<h3>Simon Stache</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="12" data-gallery="dancernick" data-thumbClass="thumbEven">
+								<h3>Nick Tredrea</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="27" data-gallery="CarmenLaCubana" data-thumbClass="thumbEven">
+								<h3>Carmen La Cubana, Sadler's Wells</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="16" data-gallery="AlbanyTechnicalWorkshop" data-thumbClass="thumbEven">
+								<h3>The Albany Technical Theatre Masterclass</h3>
+							</li>
+						</ul>
+
+						<ul>
+							<li><h3 class="categoryLink">Events</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="19" data-gallery="JuliaFullertonBatten" data-thumbClass="thumbEven">
+								<h3>Julia Fullerton-Batten - behind the scenes</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="14" data-gallery="EnterThroughTheHeadset" data-thumbClass="thumbEven">
+								<h3>Enter Through The Headset - Private View</h3>
+							</li>
+						</ul>
+
+						<ul>
+							<li><h3 class="categoryLink">Portraits</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="9" data-gallery="LiaMicePressShots" data-thumbClass="thumbEven">
+								<h3>Lia Mice - Press Shots</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="3" data-pics="6" data-gallery="RichardTaitArtist" data-thumbClass="thumbEven">
+								<h3>Richard Tait - Artist</h3>
+							</li>
+						</ul>
+
+						<ul>
+							<li><h3 class="categoryLink">Fashion</h3></li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="22" data-gallery="SanneSavileRowCatwalk" data-thumbClass="thumbEven">
+								<h3>Sanne Savile Row LFW - Catwalk show</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="12" data-gallery="SanneSavileRowBackstage" data-thumbClass="thumbEven">
+								<h3>Sanne Savile Row LFW - Backstage</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="48" data-gallery="Behind-the-scenes" data-thumbClass="thumbEven">
+								<h3>Lulaloop - behind the scenes</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="15" data-gallery="SurrenderToAStranger" data-thumbClass="thumbEven">
+								<h3>Surrender to a Stranger</h3>
+							</li>
+							<li hidden class="galLink galLinkMain" data-galCol="4" data-pics="19" data-gallery="Youthquake" data-thumbClass="thumbEven">
+								<h3>Youthquake</h3>
+							</li>
+						</ul>
+						<br>
+						<br>
+
+						<span class="galLinkMain publishedLink" data-galCol="3" data-pics="15" data-gallery="Published" data-thumbClass="thumbEven">
+							<h3>Published</h3>
+						</span>
+						<h3 class="aboutLink">About</h3>
+<!-- 						<ul>
+							<li><h3 class="categoryLink">Links</h3></li>
+							<li hidden class="galLink extLink">
+								<h3><a class="musicLink" target="_blank" href="http://thequietus.com/articles/23080-lone-taxidermist-aja-ireland-trifle-live-review">The Quietus - AJA</a></h3>
+							</li>
+						</ul> -->
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<div class="col col-lg-8 col-md-12 showPane">
+				<div class="container-fluid">
+					
+				<!--	Cover pages			-->
+					<div class="row">
+						<div id="mainCover" class="showDiv invisible">
+							<div class="col col-lg-12 coverImgContainer">
+								<img class="coverImg notShown" src="/img/Cover_1.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/Cover_2.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/Cover_3.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/Cover_4.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/Cover_5.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/Cover_6.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<div id="mainCoverImgNav" class="coverImgNav"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div id="musicCover" class="showDiv invisible">
+							<div class="col col-lg-12 coverImgContainer">
+								<img class="coverImg notShown" src="/img/MusicCover_1.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/MusicCover_2.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/MusicCover_3.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/MusicCover_4.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/MusicCover_5.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<img class="coverImg notShown" src="/img/MusicCover_6.jpg" alt="Cover image for the Chasing Shadows portfolio.">
+								<div id="musicCoverImgNav" class="coverImgNav"></div>
+							</div>
+						</div>
+					</div>
+
+
+				<!--	About pages			-->
+					<div id="mainAbout" class="row showDiv invisible">
+						<div class="aboutText">
+							<div class="aboutPadDivTop"></div>
+							<div class="aboutFlexDiv">
+								<div class="col col-lg-1 col-md-1 col-sm-0 col-xs-0 mainNav"></div>
+								<div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4 mainNav aboutL">
+									<img src="/img/AboutMain.jpg" alt="Laura with her camera.">
+									<table class="houzz" style="width: 125px;" cellpadding="0" cellspacing="0"><tr><td><a href="https://www.houzz.co.uk/pro/webuser-417861555"><img src="https://st.hzcdn.com/static_en-GB/badge125_125_gs@2x.png" alt="Laura Bemrose in London, Greater London, UK on Houzz" width="125" height="125" border="0" /></a></td></tr></table>	
+								</div>
+								<div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1 mainNav">
+								</div>
+								<div class="col col-lg-5 col-md-5 col-sm-7 col-xs-7 mainNav mainAboutText">
+									<p>Laura is an interior, still life and nature photographer based in London.</p>
+									<br>
+									<p><em>“Chasing Shadows is inspired by my early photography when I first moved to London; shadows and reflections became my signature style. Today I am inspired to design and produce creative setups for still life and capture the finer details of the natural world around us”.</em></p>
+									<br>
+									<p><strong>For more information, commissions or quotes please contact: </strong></p>
+									<p><a href="mailto:laura@chasingshadowsphotography.com">laura@chasingshadowsphotography.com</a></p>
+									<p><strong>Tel: </strong>07736 765156</p>
+									<p><strong>Instagram: </strong><a href="https://www.instagram.com/chasing_shadows_london/">chasing_shadows_london</a></p>
+								</div>
+								<div class="col col-lg-1 col-md-1 col-sm-0 col-xs-0">
+								</div>
+							</div>
+							<div class="aboutPadDivBottom"></div>
+						</div>
+					</div>
+
+					<div id="musicAbout" class="row showDiv invisible">
+						<div class="aboutText">
+							<div class="aboutPadDivTop"></div>
+							<div class="aboutFlexDiv">
+								<div class="col col-lg-1 col-md-1 col-sm-0 musicNav">
+								</div>
+								<div class="col col-lg-4 col-md-4 col-sm-4 musicNav">
+									<img src="/img/AboutMain_music.jpg" alt="Laura with her camera.">
+									<div class=musicAboutText>
+										<ul class="publicationList">
+											<li>Publications:</li>
+											<li>The Financial Times</li>
+											<li>The Quietus</li>
+											<li>Vice Magazine</li>
+											<li>Bird On The Wire</li>
+											<li>Subvrt</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col col-lg-1 col-md-1 col-sm-1 musicNav">
+								</div>
+								<div class="col col-lg-5 col-md-5 col-sm-7 musicNav musicAboutText">
+									<p>As a London based performance photographer, Laura is passionate about capturing energy and raw emotion, combining her love of dance, theatre and music. Laura has photographed performances in a variety of venues such as Sadler's Wells, The Royal Albert Hall, Southbank Centre, Islington Assembly Hall and Oval Space. Recent work includes studio-based work capturing portraits of dancers and artists.</p>
+									<p>Laura is available for commissions and collaborations worldwide.</p>
+									<p>Please get in touch at <a href="mailto:laura@chasingshadowsphotography.com" class="musicEmailLink">laura@chasingshadowsphotography.com</a></p>
+								</div>
+								<div class="col col-lg-1 col-md-1 col-sm-0">
+								</div>
+							</div>
+							<div class="aboutPadDivBottom"></div>
+						</div>
+					</div>
+
+
+				<!--	Thumbnails			-->
+					<div id="showThumbnails" class="showDiv row-fluid invisible">
+					</div>
+
+				<!--	Zoomed images	-->
+					<div id="showZoomImg" class="showDiv row invisible">
+						<div class="col col-lg-12">
+							<img id="zoomImg" src="/img/Cover_1.jpg" alt="An enlarged gallery image.">
+							<span id="subtitle"></span>
+						</div>
+
+					<!--	Pic controls 		-->
+						<div hidden class="picControls">
+							<span class="controlSpan">
+								<i class="fa fa-angle-left picControl" id="prevBtn"></i>
+								<span class="picControl" id="closePopUp">x</span>
+								<i class="fa fa-angle-right picControl" id="nextBtn"></i>
+							</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		<!-- Icon bar 		-->
+			<div class="col col-lg-2 visible-lg">
+
+				<div class="col col-lg-2 visible-lg iconCol">
+					<div class="footerIcons">
+						<a target="_blank" class="instagramLink" href="https://www.instagram.com/chasing_shadows_london/"><i class="fa fa-instagram bigIcon" aria-hidden="true"></i></a>
+						<span data-toggle="tooltip" data-placement="left" title="laura@chasingshadowsphotography.com" id="emailLinkIcon">
+							<a href="mailto:laura@chasingshadowsphotography.com">
+								<i class="fa fa-envelope-o bigIcon" aria-hidden="true"></i>
+							</a>
+						</span>
+						<div class="flipContainer">
+							<div class="flipBtn">
+								<div class="flipDiv flipFront">
+									<div class="flipTriangleFront"></div>
+								</div>
+								<div class="flipDiv flipBack">
+									<div class="flipTriangleBack"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+<!-- Google analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-106165270-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+
+</body>
+</html>
+
+
+
+

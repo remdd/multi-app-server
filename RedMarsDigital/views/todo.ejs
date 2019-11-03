@@ -1,0 +1,71 @@
+<% include ./partials/header %>
+
+<div class="bgDiv solidBgDivLast">
+	<div class="container">
+
+		<div class="row">
+			<div class="col col-12">
+				<h2>To-do list</h2>
+
+				<form>
+					<label class="inlineLabel" for="newToDo"><h3>Add new ToDo Item</h3></label>
+					<select id="catList" default="Misc">
+						<% categories.forEach(category => { %>
+							<option value="<%= category.name %>" label="<%= category.name %>"><%= category.name %></option>
+						<% }) %>
+					</select>
+					<input required type="text" name="newToDo" id="newToDo" placeholder="New ToDo item">
+					<button id="addToDoBtn">Add</button>
+				</form>
+
+				<form>
+					<label class="inlineLabel" for="newCategory"><h3>Add new Category</h3></label>
+					<input type="text" name="newCategory" id="newCategory" placeholder="New Category name">
+					<button id="addCategoryBtn">Add</button>
+				</form>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col col-12">
+				<ul class="toDoList">
+					<% categories.forEach(category => { %>
+					<li data-name="<%= category.name %>">
+						<i class="fa fa-times deleteCatBtn" aria-hidden="true"></i>
+						<% if(category.complete === true) { %>
+							<h3 class="complete"><%= category.name %></h3>
+						<% } else { %>
+							<h3 class=""><%= category.name %></h3>
+						<% } %>
+					</li>
+						
+						<ul>
+							<% category.todos.forEach(todo => { %>
+								<li class="toDoItem" data-name="<%= todo.name %>">
+									<i class="fa fa-times deleteItemBtn" aria-hidden="true"></i>
+									<% if(todo.complete === true) { %>
+										<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+										<span class="complete"><%= todo.name %></span>
+									<% } else { %>
+										<i class="fa fa-circle-o" aria-hidden="true"></i>
+										<span class=""><%= todo.name %></span>
+									<% } %>
+								</li>
+							<% }); %>
+						</ul>
+
+					<% }); %>
+				</ul>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/js/todo.js"></script>
+
+<% include ./partials/footer %>
+

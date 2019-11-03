@@ -1,0 +1,6 @@
+.env
+
+node_modules/*
+ChasingShadows/node_modules/*
+RedMarsDigital/node_modules/*
+server1/node_modules/*
