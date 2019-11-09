@@ -548,5 +548,5 @@ function addDate(req) {
 // });
 
 app.listen(process.env.PORT, process.env.IP, () => {
-	console.log(`Server started on port ${process.env.PORT}`);
+	console.log(`RedMarsDigital started on port ${process.env.PORT}`);
 });
