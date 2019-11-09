@@ -1,38 +1,60 @@
 const express = require('express'),
-  // httpProxy = require('http-proxy')
-  proxy = require('http-proxy-middleware')
-  path = require('path')
+  dotenv = require('dotenv'),
+  proxy = require('http-proxy-middleware'),
   kill = require('kill-port')
 
+dotenv.config({path: '.env'});
+const config = require('./config.json')
+
 const wrapperApp = express()
-// const apiProxy = httpProxy.createProxyServer()
+const PORT = process.env.PORT || 3000
 
 var fork = require('child_process').fork
 
-const config = require('./config.json')
-for (app of config.apps) {
-  console.log("Creating proxy...")
-  wrapperApp.use(app.route, proxy({
-    target: `${config.rootUrl}:${app.port}`,
-    pathRewrite: (appPath, req) => {
-      console.log(`appPath: ${appPath}`)
-      return appPath
-    }
-  }))
 
-  console.log("Forking...")
-  kill(`${app.port}`)
+for (app of config.apps) {
+  //  Launch app process
+  console.log(`\nForking ${app.name} at port ${app.port}`)
+  kill(app.port)
   fork(`./${app.entrypoint}`, {
     cwd: `${app.dir}`,
     env: { PORT: app.port }
   })
-  // const appPath = `${config.rootUrl}:${app.port}`
-  // wrapperApp.all(`${app.route}/*`, (req, res) => {
-  //   console.log(`Redirecting to ${app.name}`)
-  //   apiProxy.web(req, res, {target: appPath})
-  // })
+
+  // const context = `${app.route}/**`
+  // console.log(context)
+  // const target = `${process.env.ROOTURL}:${app.port}/`
+  // console.log(target)
+
+  // const options = {
+  //   target: target,
+  //   changeOrigin: true,
+  //   prependPath: true,
+  //   pathRewrite: {
+  //     [`^${process.env.ROOTURL}:${PORT}`]: `${process.env.ROOTURL}:${app.port}`
+  //   }
+  // }
+  // const appProxy = proxy(options)
+
+  // wrapperApp.use(context, appProxy)
+
+
+
+
+
+
+
+
+
+
+  //  Working redirect
+  wrapperApp.get(app.route, (req, res) => {
+    const target = `${process.env.ROOTURL}:${app.port}`
+    console.log(target)
+    res.redirect(target)
+  })
 }
 
-wrapperApp.listen(80, () => {
-  console.log("Proxy listening on port 80")
+wrapperApp.listen(PORT, () => {
+  console.log(`Wrapper app listening on port ${PORT}`)
 })
