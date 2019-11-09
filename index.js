@@ -23,7 +23,8 @@ for (app of config.apps) {
   console.log("Forking...")
   kill(`${app.port}`)
   fork(`./${app.entrypoint}`, {
-    cwd: `${app.dir}`
+    cwd: `${app.dir}`,
+    env: { PORT: app.port }
   })
   // const appPath = `${config.rootUrl}:${app.port}`
   // wrapperApp.all(`${app.route}/*`, (req, res) => {

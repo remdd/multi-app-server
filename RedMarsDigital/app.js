@@ -547,6 +547,6 @@ function addDate(req) {
 // 	});
 // });
 
-app.listen(process.env.PORT_REDMARSDIGITAL, process.env.IP, () => {
+app.listen(process.env.PORT, process.env.IP, () => {
 	console.log("Server started");
 });

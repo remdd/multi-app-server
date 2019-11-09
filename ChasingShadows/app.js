@@ -27,6 +27,6 @@ app.get('/music/', function(req, res) {
 	res.render('index', {mainTheme: mainTheme, query: req.query});
 });
 
-app.listen(process.env.PORT_CHASINGSHADOWS, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
 	console.log("Server started");
 });
